@@ -24,9 +24,9 @@
                 <span class="icon-settings"></span>
         </span>
 
-        <gapi-active-users  :users.sync="users"
-                            :view.sync="view"
-                            v-show="siteUsersVisible && !loading">
+        <gapi-active-users :users.sync="users"
+                           :view.sync="view"
+                           v-show="siteUsersVisible && !loading">
         </gapi-active-users>
 
         <div v-show="loading" class="spinner__wrapper">
@@ -53,6 +53,10 @@
                 required : true,
                 twoWay   : true,
             },
+            view : {
+                required : true,
+                twoWay   : true,
+            },
             id : {
                 type     : Number,
                 required : true,
@@ -63,9 +67,8 @@
         data() {
             return {
                 users               : 0,
-                view                : null,
-                siteSettingsVisible : true,
-                siteUsersVisible    : false,
+                siteSettingsVisible : false,
+                siteUsersVisible    : true,
                 loading             : true,
             }
         },
@@ -76,20 +79,6 @@
         },
 
         methods : {
-            getActiveUsers(view) {
-
-                if (view === this.view) {
-                    let query = gapi.client.analytics.data.realtime.get({
-                        'ids'     : this.view,
-                        'metrics' : 'rt:activeUsers',
-                    })
-
-                    query.execute((resultAsObject, resultAsJson) => {
-                        this.users = resultAsObject.totalsForAllResults['rt:activeUsers']
-                        this.site.users = this.users
-                    });
-                }
-            },
 
             showSiteUsers() {
                 this.loading             = true
@@ -108,18 +97,6 @@
         },
 
         watch: {
-            view() {
-                this.loading = false
-
-                let view = this.view
-                this.site = {
-                    view : this.view,
-                    users: 0,
-                }
-                setInterval(() => {
-                    this.getActiveUsers(view)
-                }, 5000)
-            }
         },
     }
 

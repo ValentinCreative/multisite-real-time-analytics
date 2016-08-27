@@ -18,16 +18,21 @@
         },
 
         ready() {
-            var viewSelector = new gapi.analytics.ViewSelector({
+            let view = this.view
+            var viewSelector = new gapi.analytics.ext.ViewSelector2({
                 container: 'view-selector-' + this.siteId
             })
 
-            viewSelector.execute()
+            viewSelector.set({ids: this.view})
+
+            this.$parent.loading = false
 
             viewSelector.on('change', (id) => {
-                this.view = id
-                this.$root.sites[this.siteId].view = id
+                    this.view = id
+                    this.$root.sites[this.siteId].view = id
             })
+
+            viewSelector.execute()
         },
     }
 

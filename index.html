@@ -12,6 +12,7 @@
         <site v-for="site in sites"
               :id.sync="$index"
               :auth.sync="auth"
+              :view.sync="site.view"
               :profile.sync="profile">
         </site>
     </div>

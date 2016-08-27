@@ -1,5 +1,9 @@
 export default {
     gapi : {
         clientId : 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com'
-    }
+    },
+    defaultViews : [
+        { view : 'ga:XXXXXXXX' },
+        { view : 'ga:XXXXXXXX' },
+    ],
 }

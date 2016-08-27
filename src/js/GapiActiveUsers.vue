@@ -23,8 +23,7 @@
 
         methods : {
             getActiveUsers(view) {
-
-                if (view === this.view) {
+                if (view === this.view && this.view !== null) {
                     let query = gapi.client.analytics.data.realtime.get({
                         'ids'     : this.view,
                         'metrics' : 'rt:activeUsers',
@@ -38,9 +37,23 @@
             }
         },
 
+        ready() {
+
+            if (this.view !== null) {
+
+                this.$parent.loading = true
+                setInterval(() => {
+                    this.getActiveUsers(this.view);
+                }, 5000)
+            } else {
+                this.$parent.showSiteSettings()
+            }
+        },
+
         watch: {
             view() {
                 let view = this.view
+                console.log(view);
 
                 setInterval(() => {
                     this.getActiveUsers(view)

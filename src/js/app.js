@@ -1,10 +1,13 @@
+import config from './configuration.js'
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import GapiAuth from './GapiAuth.vue'
 import Site from './Site.vue'
+import './view-selector2.js'
 
 Vue.config.devtools = true
 Vue.use(VueResource)
+
 
 new Vue({
     el         : 'body',
@@ -13,11 +16,7 @@ new Vue({
     data       : {
         auth    : false,
         profile : false,
-        sites   : [
-            {
-                view  : null,
-            }
-        ],
+        sites   : config.defaultViews,
     },
     methods: {
         addSite() {
