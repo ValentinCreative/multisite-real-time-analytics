@@ -1,0 +1,71 @@
+//------------------------------------*\
+//  @FUNCTIONS
+//------------------------------------*/
+
+//
+// REM Calc
+// Use px to calculate rem
+// ex: remCalc(16px) = 1rem
+// See https://github.com/zurb/foundation/blob/master/scss/foundation/_functions.scss
+//
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+
+@function convert-to-rem($value, $base-value: $rem-base)  {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+  @return $value;
+}
+
+@function remCalc($values, $base-value: $rem-base) {
+  $max: length($values);
+
+  @if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+@function emCalc($values){
+  @return rem-calc($values);
+}
+
+/// Computes a top-shadow for a card effect.
+/// @param {Number} $depth - depth level
+/// @return {List}
+@function top-shadow($depth) {
+  $primary-offset: nth(1.5 3 10 14 19, $depth) * remCalc(1px);
+  $blur: nth(1.5 3 10 14 19, $depth) * remCalc(4px);
+  $color: rgba(#000, nth(.12 .16 .19 .25 .30, $depth));
+
+  @return 0 $primary-offset $blur $color;
+}
+
+/// Computes a bottom-shadow for a card effect.
+/// @param {Number} $depth - depth level
+/// @return {List}
+@function bottom-shadow($depth) {
+  $primary-offset: nth(1.5 3 6 10 15, $depth) * remCalc(1px);
+  $blur: nth(1 3 3 5 6, $depth) * remCalc(4px);
+  $color: rgba(#000, nth(.24 .23 .23 .22 .22, $depth));
+
+  @return 0 $primary-offset $blur $color;
+}
+
+@function sqrt($r) {
+    $x0: 1;
+    $x1: $x0;
+
+    @for $i from 1 through 10 {
+        $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+        $x0: $x1;
+    }
+
+    @return $x1;
+}

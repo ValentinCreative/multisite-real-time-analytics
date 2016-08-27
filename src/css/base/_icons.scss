@@ -1,0 +1,67 @@
+@font-face {
+    font-family: "analytics-icons";
+    src: url('/assets/fonts/icons/analytics-icons.eot');
+    src: url('/assets/fonts/icons/analytics-icons.eot?#iefix') format('eot'),
+        url('/assets/fonts/icons/analytics-icons.woff') format('woff'),
+        url('/assets/fonts/icons/analytics-icons.ttf') format('truetype'),
+        url('/assets/fonts/icons/analytics-icons.svg#analytics-icons') format('svg');
+}
+
+%icon {
+    font-family: "analytics-icons";
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    // speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+    text-decoration: none;
+    text-transform: none;
+
+    speak: none;
+
+    display: inline-block;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    // opacity: .8;
+
+    // fix buttons height, for twitter bootstrap
+    line-height: 1em;
+
+    // Animation center compensation - margins should be symmetric
+    // remove if not needed
+    margin-left: .2em;
+
+    // you can be more comfortable with increased icons size
+    // font-size: 120%;
+
+    // Uncomment for 3D effect
+    // text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@function icon-char($filename) {
+    $char: "";
+
+    @if $filename == cross {
+        $char: "\E001";
+    }
+
+    @return $char;
+}
+
+@mixin icon($filename, $insert: before) {
+    &:#{$insert} {
+        @extend %icon;
+        content: icon-char($filename);
+    }
+}
+
+
+    $icon-cross : "\E001";
+
+
+.icon-cross {
+    @include icon(cross);
+}

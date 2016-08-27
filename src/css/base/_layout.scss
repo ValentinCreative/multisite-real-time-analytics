@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+html {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    &:after {
+        display: none;
+        content: 'x-small';
+
+        @include at-breakpoint($small) {
+            content: 'small';
+        }
+
+        @include at-breakpoint($medium) {
+            content: 'medium';
+        }
+
+        @include at-breakpoint($large) {
+            content: 'large';
+        }
+
+        @include at-breakpoint($x-large) {
+            content: 'x-large';
+        }
+
+        @include at-breakpoint($xx-large) {
+            content: 'xx-large';
+        }
+    }
+}

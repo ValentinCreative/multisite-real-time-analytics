@@ -1,0 +1,16 @@
+{
+  "name": "LegallaisInstitutional",
+  "version": "1.0",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susyone-libsass": "git@github.com:LegallaisEcommerce/susyone-libsass.git"
+  }
+}

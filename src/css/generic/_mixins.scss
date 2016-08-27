@@ -1,0 +1,49 @@
+@mixin flexItems($nBitems: 3, $previous: 0, $margin: 0.5%) {
+    $flex-columns-gaps         : ($nBitems - 1) * ($margin * 2);
+    $flex-columns-without-gaps : 100% - $flex-columns-gaps;
+    $flex-columns-width        : $flex-columns-without-gaps / $nBitems;
+
+    @if $nBitems == 1 {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    } @else {
+        width: $flex-columns-width;
+        margin-left: $margin;
+        margin-right: $margin;
+
+        @if $previous > 1 {
+            &:nth-of-type(#{$previous}n) {
+                margin-right: $margin;
+            }
+
+            &:nth-of-type(#{$previous}n+1) {
+                margin-left: $margin;
+            }
+        }
+
+        &:nth-of-type(#{$nBitems}n) {
+            margin-right: 0;
+        }
+
+        &:nth-of-type(#{$nBitems}n+1) {
+            margin-left: 0;
+        }
+    }
+}
+
+/// Gives a card depth effect.
+/// @param {Number} $depth - depth level (between 1 and 5)
+/// @link http://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+/// @requires {function} top-shadow
+/// @requires {function} bottom-shadow
+
+@mixin paper($depth) {
+    @if $depth < 1 {
+        box-shadow: none;
+    } @else if $depth > 5 {
+        @warn "Invalid $depth `#{$depth}` for mixin `paper`.";
+    } @else {
+        box-shadow: bottom-shadow($depth), top-shadow($depth);
+    }
+}

@@ -1,0 +1,81 @@
+$show-grid-backgrounds : false;
+
+$gray-lighter          : #e6e6e6;
+$gray-light            : #bfbfbf;
+$gray                  : #7c7c7c;
+$gray-dark             : #3c3c3c;
+$gray-darker           : #222;
+$black                 : #000;
+
+$blue-dark             : #218ec0;
+$blue-light            : #5bc0de;
+$green                 : #43af3b;
+$green-light           : #dff0d8;
+$orange                : #f37800;
+$red                   : #de0707;
+
+$facebook-color        : #3b5998;
+$twitter-color         : #55acee;
+$googleplus-color      : #dd4b39;
+$youtube-color         : #cd201f;
+$linkedin-color        : #176e9a;
+
+$social-networks-colors :
+    (facebook, $facebook-color),
+    (twitter, $twitter-color),
+    (googleplus, $googleplus-color),
+    (youtube, $youtube-color),
+    (linkedin, $linkedin-color);
+
+
+$action-color          : $blue-dark;
+$success-color         : $green;
+$success-bg-color      : $green-light;
+$warning-color         : $orange;
+$danger-color          : $red;
+$danger-color-light    : lighten(desaturate($danger-color, 15%), 35%);
+$info-alert-color      : $blue-light;
+$info-color            : lighten(desaturate($info-alert-color, 32%), 27%) !default;
+
+$link-color            : $action-color;
+
+
+
+$font-primary          : "Roboto", "Helvetica", "Arial", sans-serif;
+
+$base-font-size        : 16px;
+$font-size-content     : 18px;
+$base-line-height      : 24px;
+
+$rem-base              : 16px;
+
+$font-weight-normal    : 300;
+$font-weight-medium    : 400;
+$font-weight-bold      : 500;
+
+$space                 : remCalc(16px);
+$space-half            : $space / 2;
+
+
+$menu-background       : $gray-dark;
+
+$cubic                 : cubic-bezier(.64,.09,.08,1);
+
+
+/* Breakpoints */
+$total-columns         : 4;
+$column-width          : 4em;
+$gutter-width          : 1em;
+$grid-padding          : $gutter-width;
+$container-style       : fluid; // Fluid or static
+
+//breakpoints
+$x-small               : $total-columns; // Small phones, Non-retina smartphones & phablets
+$small                 : 6; // Retina smartphones & phablets
+$medium                : 8; // Retina tablets
+$large                 : 12; // Computers screens
+$x-large               : 14; // Large computer screens
+$xx-large              : 28; // TV screens
+
+$max-width             : 89em;
+$x-large-max-width     : 110em;

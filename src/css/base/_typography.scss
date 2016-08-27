@@ -1,0 +1,81 @@
+html {
+  font-size: 100%;
+  line-height: 1.5em;
+}
+
+body {
+    font-family: $font-primary;
+    font-weight: $font-weight-normal;
+    color: $gray-dark;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: lighten($link-color, 5%);
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    font-family: $font-primary;
+    font-weight: $font-weight-bold;
+    margin-top: $space-half;
+    margin-bottom: $space-half;
+    display: block;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+h1,
+.h1 {
+    @include adjust-font-size-to(40px);
+    word-break: break-all;
+    word-break: break-word;
+}
+
+h2,
+.h2 {
+    @include adjust-font-size-to(32px);
+}
+
+h3,
+.h3 {
+    @include adjust-font-size-to(25px);
+}
+
+h4,
+.h4 {
+    @include adjust-font-size-to(18px);
+}
+
+h5,
+.h5 {
+    @include adjust-font-size-to(14px);
+}
+
+h6,
+.h6 {
+    @include adjust-font-size-to(12px);
+}
+
+p {
+    margin: $space-half 0;
+}
+
+b,
+strong {
+    font-weight: $font-weight-bold;
+}
