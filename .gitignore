@@ -11,5 +11,6 @@ _assets
 *bower_components*
 ai-cache/*
 assets
+npm-debug.log
 
 src/js/configuration.js
