@@ -39,7 +39,8 @@ $info-color            : lighten(desaturate($info-alert-color, 32%), 27%) !defau
 
 $link-color            : $action-color;
 
-
+$body-background       : $gray-dark;
+$content-background    : #f1f1f1;
 
 $font-primary          : "Roboto", "Helvetica", "Arial", sans-serif;
 
@@ -56,8 +57,6 @@ $font-weight-bold      : 500;
 $space                 : remCalc(16px);
 $space-half            : $space / 2;
 
-
-$menu-background       : $gray-dark;
 
 $cubic                 : cubic-bezier(.64,.09,.08,1);
 

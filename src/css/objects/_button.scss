@@ -1,0 +1,54 @@
+.button {
+    border: 0;
+    background-color: #fff;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: remCalc(4px) $space;
+    border-radius: remCalc(2px);
+    font-weight: $font-weight-medium;
+
+    &:hover,
+    &:focus {
+        outline: 0;
+        @include paper(1);
+    }
+}
+
+.button--primary {
+    background-color: $action-color;
+    color: #fff;
+
+    &:hover,
+    &:focus {
+        @include paper(1);
+    }
+}
+
+.button--floating {
+    border-radius: 100%;
+    padding: 0;
+    @include adjust-font-size-to(20px);
+    width: remCalc(50px);
+    height: remCalc(50px);
+}
+
+.button--raising {
+    @include paper(2);
+
+    &:hover,
+    &:focus {
+        @include paper(3);
+    }
+
+    &:active {
+        @include paper(1);
+    }
+}
+
+.button__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

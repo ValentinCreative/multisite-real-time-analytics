@@ -144,18 +144,25 @@ gulp.task('scripts-main', function() {
                 filename: 'app.js',
             },
             module: {
-              loaders: [
-                {
-                  test: /\.js$/,
-                  exclude: /(node_modules|bower_components)/,
-                  loader: 'babel', // 'babel-loader' is also a legal name to reference
-                  query: {
-                    presets: ['es2015'],
-                    plugins: ['transform-object-assign', 'transform-object-rest-spread']
-                  }
-                }
-              ]
+                loaders: [
+                    {
+                        test: /\.js$/,
+                        exclude: /(node_modules|bower_components)/,
+                        loader: 'babel',
+                    },
+                    {
+                        test   : /\.vue$/,
+                        loader : 'vue',
+                    }
+                ]
             },
+            babel: {
+                presets: ['es2015'],
+                plugins: ['transform-object-assign', 'transform-object-rest-spread']
+            },
+            resolve: {
+                modulesDirectories: ['node_modules']
+            }
         }))
         .pipe(plumber({
             errorHandler: function (error) {
@@ -185,6 +192,7 @@ gulp.task('watch', ['images','svg2png','icons','scripts-main','styles'], functio
     });
 
     gulp.watch(src.js + '**/*.js', ['scripts-main'])
+    gulp.watch(src.js + '**/*.vue', ['scripts-main'])
     gulp.watch(src.scss + '**/*.scss', ['styles'])
     gulp.watch(src.images + '**/*.{jpg,jpeg,png,gif,svg}', ['images'])
     gulp.watch(src.icons + '*.svg', ['icons'])

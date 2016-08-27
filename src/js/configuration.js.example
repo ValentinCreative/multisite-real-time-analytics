@@ -1,0 +1,5 @@
+export default {
+    gapi : {
+        clientId : 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com'
+    }
+}

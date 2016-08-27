@@ -1,0 +1,81 @@
+.sites {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: $space * 4;
+    height: 100%;
+    width: 100%;
+}
+
+.sites__add {
+    position: absolute;
+    bottom: $space;
+    right: $space;
+}
+
+.sites__item {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: $space;
+    width: remCalc(400px);
+    background-color: #fff;
+    padding: $space;
+    @include paper(1);
+}
+
+%sites__top-icon {
+    position: absolute;
+    top: $space;
+    right: $space;
+
+    cursor: pointer;
+}
+
+.sites__delete {
+    @extend %sites__top-icon;
+    color: $danger-color;
+}
+
+.sites__settings {
+    @extend %sites__top-icon;
+}
+
+.sites__close-settings {
+    align-self: flex-end;
+}
+
+.sites__selector {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: $space $space * 2;
+
+    > table {
+        width: 100% !important;
+        margin-bottom: $space-half;
+
+        tr {
+            display: flex;
+
+            td {
+
+                &:last-of-type {
+                    width: auto !important;
+                    flex: 1;
+                }
+
+                &:first-of-type {
+                    width: remCalc(60px) !important;
+                }
+
+                > div {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

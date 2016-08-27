@@ -44,8 +44,14 @@
 @function icon-char($filename) {
     $char: "";
 
-    @if $filename == cross {
+    @if $filename == add {
         $char: "\E001";
+    }
+    @if $filename == delete {
+        $char: "\E002";
+    }
+    @if $filename == settings {
+        $char: "\E003";
     }
 
     @return $char;
@@ -59,9 +65,19 @@
 }
 
 
-    $icon-cross : "\E001";
+    $icon-add : "\E001";
+
+    $icon-delete : "\E002";
+
+    $icon-settings : "\E003";
 
 
-.icon-cross {
-    @include icon(cross);
+.icon-add {
+    @include icon(add);
+}
+.icon-delete {
+    @include icon(delete);
+}
+.icon-settings {
+    @include icon(settings);
 }

@@ -11,3 +11,5 @@ _assets
 *bower_components*
 ai-cache/*
 assets
+
+src/js/configuration.js

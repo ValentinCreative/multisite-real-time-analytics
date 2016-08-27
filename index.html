@@ -7,8 +7,26 @@
     <link rel="stylesheet" href="/assets/css/app.css">
 </head>
 <body>
-    <h1>Hello world</h1>
-
+    <gapi-auth :auth.sync="auth"></gapi-auth>
+    <div class="sites">
+        <site v-for="site in sites"
+              :id.sync="$index"
+              :auth.sync="auth"
+              :profile.sync="profile">
+        </site>
+    </div>
+    <button class="button button--primary button--floating button--raising sites__add"
+            @click.prevent="addSite">
+            <span class="icon-add button__icon"></span>
+    </button>
+    <script>
+    (function(w,d,s,g,js,fs){
+      g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+      js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+      js.src='https://apis.google.com/js/platform.js';
+      fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+    }(window,document,'script'));
+    </script>
     <script src="/assets/js/app.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>
