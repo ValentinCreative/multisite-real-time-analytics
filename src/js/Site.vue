@@ -1,10 +1,33 @@
 <template>
     <div class="sites__item" v-if="profile">
+        <div class="sites__header"
+             v-show="!loading"
+             :style="{ backgroundImage: 'url(data:image/svg+xml;base64,' + image + ')'}">
+
+            <h1 class="sites__title">{{ title}}</h1>
+        </div>
 
         <gapi-view-selector :view.sync="view"
                             :site-id.sync="id"
                             v-show="siteSettingsVisible && !loading">
         </gapi-view-selector>
+
+        <div class="sites__form"
+             v-show="siteSettingsVisible && !loading">
+            <p>
+                <label>
+                    Titre
+                    <input v-model="title">
+                </label>
+            </p>
+            <p>
+                <label>
+                    Image
+                    <input type="file" @change="onFileChange" v-el:image-input>
+                    <input type="hidden" v-model="image">
+                </label>
+            </p>
+        </div>
 
         <span class="sites__delete"
                 @click="deleteSite"
@@ -24,10 +47,11 @@
                 <span class="icon-settings"></span>
         </span>
 
-        <gapi-active-users :users.sync="users"
-                           :view.sync="view"
-                           v-show="siteUsersVisible && !loading">
-        </gapi-active-users>
+        <div v-show="siteUsersVisible && !loading" class="sites__users">
+            <gapi-active-users :users.sync="users"
+                               :view.sync="view">
+            </gapi-active-users>
+        </div>
 
         <div v-show="loading" class="spinner__wrapper">
             <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -55,6 +79,14 @@
             },
             view : {
                 required : true,
+                twoWay   : true,
+            },
+            title : {
+                required : false,
+                twoWay   : true,
+            },
+            image : {
+                required : false,
                 twoWay   : true,
             },
             id : {
@@ -93,7 +125,27 @@
 
             deleteSite() {
                 this.$root.sites.splice(this.id, 1)
-            }
+            },
+
+            onFileChange(e) {
+                let files = e.target.files || e.dataTransfer.files
+
+                if (!files.length) {
+                    return
+                }
+
+                this.createImage(files[0])
+            },
+            createImage(file) {
+                let image  = new Image()
+                let reader = new FileReader()
+
+                reader.onload = (e) => {
+                    this.image = btoa(e.target.result)
+                }
+
+                reader.readAsBinaryString(file)
+            },
         },
 
         watch: {

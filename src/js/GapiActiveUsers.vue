@@ -1,5 +1,8 @@
 <template>
-    <h1>{{ users }} visteurs</h1>
+    <div v-if="users">
+        <h1 v-show="users > 0">{{ users }}</h1>
+        <h2 v-show="users < 1">Aucun visteur</h2>
+    </div>
 </template>
 
 <script>

@@ -23,8 +23,45 @@
     margin: $space;
     width: remCalc(400px);
     background-color: #fff;
-    padding: $space;
+    // padding: $space;
     @include paper(1);
+}
+
+.sites__header {
+    width: 100%;
+    height: remCalc(200px);
+    background-position: center;
+    background-size: cover;
+    padding: $space;
+    display: flex;
+    align-items: flex-end;
+}
+
+.sites__title {
+    bottom: $space;
+    left: $space;
+    color: #fff;
+    text-shadow: remCalc(1px) remCalc(1px) remCalc(1px) rgba(#000, .5);
+    @include adjust-font-size-to(22px);
+}
+
+.sites__users {
+    padding: $space;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    h1 {
+        font-size: remCalc(55px);
+    }
+
+    h2 {
+        font-size: remCalc(35px);
+        color: $gray;
+        padding: $space-half 0;
+    }
 }
 
 %sites__top-icon {
