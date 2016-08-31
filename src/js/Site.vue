@@ -1,5 +1,6 @@
 <template>
-    <div class="sites__item" v-if="profile">
+    <div v-if="profile"
+         :class="users > 0 ? 'sites__item' : 'sites__item sites__item--empty'">
         <div class="sites__header"
              v-show="!loading"
              :style="{ backgroundImage: 'url(data:image/svg+xml;base64,' + image + ')'}">

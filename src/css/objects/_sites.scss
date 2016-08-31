@@ -23,8 +23,12 @@
     margin: $space;
     width: remCalc(400px);
     background-color: #fff;
-    // padding: $space;
     @include paper(1);
+}
+
+.sites__item--empty {
+    @include paper(0);
+    background-color: mix(#fff, $danger-color, 90%);
 }
 
 .sites__header {
@@ -59,7 +63,7 @@
 
     h2 {
         font-size: remCalc(35px);
-        color: $gray;
+        color: $danger-color;
         padding: $space-half 0;
     }
 }
