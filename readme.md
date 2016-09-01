@@ -1,6 +1,7 @@
 #Multi sites real time Analytics
 
 Based on Google Analytics real time api, this dashboard app will allow you to track how many user are now visiting multiple your sites.
+![Dashboard screenshot](screenshot.jpg)
 
 ##Installation
 
