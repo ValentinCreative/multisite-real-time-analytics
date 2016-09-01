@@ -107,7 +107,12 @@
 }
 
 .sites__settings {
+    display: none;
     @extend %sites__top-icon;
+
+    .sites__item:hover & {
+        display: block;
+    }
 }
 
 .sites__close-settings {
