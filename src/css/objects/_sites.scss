@@ -46,7 +46,7 @@
     bottom: $space;
     left: $space;
     color: #fff;
-    text-shadow: remCalc(1px) remCalc(1px) remCalc(1px) rgba(#000, .5);
+    text-shadow: remCalc(2px) remCalc(2px) remCalc(1px) rgba(#000, .5);
     @include adjust-font-size-to(22px);
 }
 
@@ -63,7 +63,7 @@
     }
 
     h2 {
-        font-size: remCalc(35px);
+        font-size: remCalc(33px);
         color: $danger-color;
         padding: $space-half 0;
     }

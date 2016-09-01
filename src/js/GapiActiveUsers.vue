@@ -1,7 +1,7 @@
 <template>
     <div v-if="users">
         <h1 v-show="users > 0">{{ users }}</h1>
-        <h2 v-show="users < 1">Aucun visteur</h2>
+        <h2 v-show="users < 1">Aucun visiteur</h2>
     </div>
 </template>
 
