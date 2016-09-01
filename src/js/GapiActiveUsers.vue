@@ -1,6 +1,5 @@
 <template>
     <h1 class="site__users__number" v-show="users">{{ users }}</h1>
-    <!-- <h2 class="site__users__number site__users__number--empty" v-show="users && users < 1">Aucun visiteur</h2> -->
     <line-chart class="site__chart" v-show="users" :data.sync="history"></line-chart>
 </template>
 
