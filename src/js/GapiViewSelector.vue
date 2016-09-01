@@ -3,22 +3,27 @@
 </template>
 
 <script>
-    export default {
-        name : 'gapi-view-selector',
 
-        props: {
+    export default {
+        name  : 'gapi-view-selector',
+
+        props : {
+
             view: {
                 required : true,
-                twoWay   : true
+                twoWay   : true,
             },
+
             siteId: {
                 required : true,
                 twoWay   : true,
-            }
+            },
         },
 
         ready() {
+
             let view = this.view
+
             var viewSelector = new gapi.analytics.ext.ViewSelector2({
                 container: 'view-selector-' + this.siteId
             })

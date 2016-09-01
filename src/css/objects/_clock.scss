@@ -1,0 +1,29 @@
+.clock {
+    position: absolute;
+    top: $space;
+    right: $space;
+    display: flex;
+}
+
+%clock__hours {
+    font-size: remCalc(25px);
+}
+
+.clock__hours {
+    @extend %clock__hours;
+
+    &:after {
+        content: ':';
+    }
+}
+
+.clock__minutes {
+    @extend %clock__hours;
+}
+
+.clock__seconds {
+    width: remCalc(17px);
+    margin-top: remCalc(3px);
+    text-align: right;
+    font-size: remCalc(14px);
+}

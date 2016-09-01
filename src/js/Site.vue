@@ -1,6 +1,8 @@
 <template>
+
     <div v-if="profile"
          :class="users > 0 ? 'sites__item' : 'sites__item sites__item--empty'">
+
         <div class="sites__header"
              v-if="!loading && image"
              :style="{ backgroundImage: 'url(data:' + image.type + ';base64,' + image.base64 + ')'}">
@@ -15,12 +17,14 @@
 
         <div class="sites__form"
              v-show="siteSettingsVisible && !loading">
+
             <p>
                 <label>
                     Titre
                     <input v-model="title">
                 </label>
             </p>
+
             <p>
                 <label>
                     Image
@@ -28,6 +32,7 @@
                     <input type="hidden" v-model="image">
                 </label>
             </p>
+
         </div>
 
         <span class="sites__delete"
@@ -48,21 +53,29 @@
                 <span class="icon-settings"></span>
         </span>
 
-        <div v-show="siteUsersVisible && !loading" class="sites__users">
+        <div v-show="siteUsersVisible && !loading"
+             class="sites__users">
+
             <gapi-active-users :users.sync="users"
                                :view.sync="view">
             </gapi-active-users>
+
         </div>
 
         <div v-show="loading" class="spinner__wrapper">
+
             <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
                <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
             </svg>
+
         </div>
+
     </div>
+
 </template>
 
 <script>
+
     import GapiViewSelector from './GapiViewSelector.vue'
     import GapiActiveUsers from './GapiActiveUsers.vue'
 
@@ -70,35 +83,43 @@
         name : 'site',
 
         props: {
+
             auth : {
                 required : true,
                 twoWay   : true,
             },
+
             profile : {
                 required : true,
                 twoWay   : true,
             },
+
             view : {
                 required : true,
                 twoWay   : true,
             },
+
             title : {
                 required : false,
                 twoWay   : true,
             },
+
             image : {
                 required : false,
                 twoWay   : true,
             },
+
             id : {
                 type     : Number,
                 required : true,
                 twoWay   : true,
             },
+
         },
 
         data() {
             return {
+
                 users               : 0,
                 siteSettingsVisible : false,
                 siteUsersVisible    : true,
@@ -108,10 +129,7 @@
 
         components : { GapiViewSelector, GapiActiveUsers },
 
-        ready() {
-        },
-
-        methods : {
+        methods    : {
 
             showSiteUsers() {
                 this.loading             = true
@@ -137,12 +155,14 @@
 
                 this.createImage(files[0])
             },
+
             createImage(file) {
                 let image  = new Image()
                 let reader = new FileReader()
-                let type = file.type
+                let type   = file.type
 
                 reader.onload = (e) => {
+
                     this.image = {
                         type   : type,
                         base64 : btoa(e.target.result),
@@ -151,9 +171,6 @@
 
                 reader.readAsBinaryString(file)
             },
-        },
-
-        watch: {
         },
     }
 
