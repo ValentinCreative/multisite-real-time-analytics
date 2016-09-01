@@ -22,6 +22,7 @@
     "bower": "^1.7.7",
     "browser-sync": "^2.12.9",
     "bulma": "^0.1.2",
+    "chartist": "^0.9.8",
     "css-loader": "^0.24.0",
     "dateformat": "^1.0.12",
     "es6-promise": "^3.2.1",
