@@ -1,11 +1,12 @@
 <template>
-    <div v-if="users">
-        <h1 v-show="users > 0">{{ users }}</h1>
-        <h2 v-show="users < 1">Aucun visteur</h2>
-    </div>
+    <h1 class="site__users__number" v-show="users && users > 0">{{ users }}</h1>
+    <h2 class="site__users__number site__users__number--empty" v-show="users && users < 1">Aucun visiteur</h2>
+    <line-chart class="site__chart" v-show="users" :data.sync="history"></line-chart>
 </template>
 
 <script>
+    import LineChart from './LineChart.vue'
+
     export default {
         name : 'gapi-active-users',
 
@@ -20,9 +21,13 @@
             },
         },
 
-        ready() {
-
+        data() {
+            return {
+                history: [],
+            }
         },
+
+        components : { LineChart },
 
         methods : {
             getActiveUsers(view) {
@@ -35,6 +40,7 @@
                     query.execute((resultAsObject, resultAsJson) => {
                         this.$parent.loading = false
                         this.users = resultAsObject.totalsForAllResults['rt:activeUsers']
+                        this.history.push(this.users)
                     });
                 }
             }
@@ -61,7 +67,13 @@
                 setInterval(() => {
                     this.getActiveUsers(view)
                 }, 5000)
-            }
+            },
+
+            history() {
+                if (this.history.length > 100) {
+                    this.history.shift()
+                }
+            },
         },
     }
 

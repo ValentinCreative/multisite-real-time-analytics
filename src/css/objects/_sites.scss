@@ -3,13 +3,13 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: $space * 4;
+    padding: $space $space * 4;
     height: 100%;
     width: 100%;
 }
 
 .sites__add {
-    position: absolute;
+    position: fixed;
     bottom: $space;
     right: $space;
 }
@@ -21,7 +21,7 @@
     align-items: flex-start;
     flex-direction: column;
     margin: $space;
-    width: remCalc(400px);
+    width: remCalc(250px);
     background-color: #fff;
     @include paper(1);
 }
@@ -32,40 +32,65 @@
 }
 
 .sites__header {
+    position: relative;
     width: 100%;
     height: remCalc(200px);
-    background-position: center;
-    background-size: cover;
+    background-position: center 30%;
+    background-size: 60%;
+    background-repeat: no-repeat;
     padding: $space;
     display: flex;
     align-items: flex-end;
+    background-color: #fff;
 }
 
 .sites__title {
-    bottom: $space;
-    left: $space;
-    color: #fff;
-    text-shadow: remCalc(1px) remCalc(1px) remCalc(1px) rgba(#000, .5);
+    position: absolute;
+    margin: 0;
+    color: $gray-dark;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: remCalc(4px) $space;
     @include adjust-font-size-to(22px);
 }
 
 .sites__users {
-    padding: $space;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    position: relative;
+}
 
-    h1 {
-        font-size: remCalc(55px);
-    }
+.site__users__number {
+    font-size: remCalc(55px);
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+    text-shadow: remCalc(0px) remCalc(0) remCalc(8px) rgba(#fff, .9);
+}
 
-    h2 {
-        font-size: remCalc(35px);
-        color: $danger-color;
-        padding: $space-half 0;
-    }
+.site__users__number--empty {
+    font-size: remCalc(33px);
+    color: $danger-color;
+    padding: $space-half 0;
+}
+
+.site__chart {
+    max-height: remCalc(100px);
+    stroke: rgba($action-color, .3);
+    margin: $space-half;
+    width: 90%;
 }
 
 %sites__top-icon {
@@ -82,7 +107,12 @@
 }
 
 .sites__settings {
+    display: none;
     @extend %sites__top-icon;
+
+    .sites__item:hover & {
+        display: block;
+    }
 }
 
 .sites__close-settings {

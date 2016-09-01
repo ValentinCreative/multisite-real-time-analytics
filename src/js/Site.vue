@@ -2,8 +2,8 @@
     <div v-if="profile"
          :class="users > 0 ? 'sites__item' : 'sites__item sites__item--empty'">
         <div class="sites__header"
-             v-show="!loading"
-             :style="{ backgroundImage: 'url(data:image/svg+xml;base64,' + image + ')'}">
+             v-if="!loading && image"
+             :style="{ backgroundImage: 'url(data:' + image.type + ';base64,' + image.base64 + ')'}">
 
             <h1 class="sites__title">{{ title}}</h1>
         </div>
@@ -140,9 +140,13 @@
             createImage(file) {
                 let image  = new Image()
                 let reader = new FileReader()
+                let type = file.type
 
                 reader.onload = (e) => {
-                    this.image = btoa(e.target.result)
+                    this.image = {
+                        type   : type,
+                        base64 : btoa(e.target.result),
+                    }
                 }
 
                 reader.readAsBinaryString(file)
