@@ -9,7 +9,7 @@
 }
 
 .sites__add {
-    position: absolute;
+    position: fixed;
     bottom: $space;
     right: $space;
 }
@@ -32,10 +32,12 @@
 }
 
 .sites__header {
+    position: relative;
     width: 100%;
     height: remCalc(200px);
-    background-position: center;
-    background-size: cover;
+    background-position: center 30%;
+    background-size: 60%;
+    background-repeat: no-repeat;
     padding: $space;
     display: flex;
     align-items: flex-end;
@@ -43,10 +45,13 @@
 }
 
 .sites__title {
-    bottom: $space;
-    left: $space;
-    color: #fff;
-    text-shadow: remCalc(0px) remCalc(0) remCalc(4px) rgba(#000, .7);
+    position: absolute;
+    margin: 0;
+    color: $gray-dark;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: remCalc(4px) $space;
     @include adjust-font-size-to(22px);
 }
 
