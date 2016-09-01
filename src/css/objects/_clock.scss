@@ -3,6 +3,11 @@
     top: $space;
     right: $space;
     display: flex;
+    background-color: rgba(#fff, .3);
+    backdrop-filter: blur(6px);
+    padding: remCalc(6px) remCalc(12px) remCalc(6px) / 1.5 remCalc(12px);
+    border-radius: remCalc(2px);
+    color: $gray-darker;
 }
 
 %clock__hours {

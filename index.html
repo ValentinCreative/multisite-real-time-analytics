@@ -6,7 +6,7 @@
     <title>Analytics</title>
     <link rel="stylesheet" href="/assets/css/app.css">
 </head>
-<body>
+<body v-el:body>
     <gapi-auth :auth.sync="auth"></gapi-auth>
     <div class="sites">
         <site v-for="site in sites"

@@ -12,6 +12,15 @@
     position: fixed;
     bottom: $space;
     right: $space;
+    display: none !important;
+
+    .user-active & {
+        display: block !important;
+    }
+
+    &:hover {
+        display: block !important;
+    }
 }
 
 .sites__item {
