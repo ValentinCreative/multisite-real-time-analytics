@@ -59,7 +59,7 @@ new Vue({
         },
 
         getWallpapersPaths() {
-            let path       = '/assets/images/wallpapers/wallpaper-'
+            let path       = '/assets/wallpapers/wallpaper-'
             let ext        = '.jpg'
             let wallpapers = []
 
