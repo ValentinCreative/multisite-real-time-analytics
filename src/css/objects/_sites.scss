@@ -12,6 +12,15 @@
     position: fixed;
     bottom: $space;
     right: $space;
+    display: none !important;
+
+    .user-active & {
+        display: block !important;
+    }
+
+    &:hover {
+        display: block !important;
+    }
 }
 
 .sites__item {
@@ -78,12 +87,10 @@
     text-align: center;
     z-index: 2;
     text-shadow: remCalc(0px) remCalc(0) remCalc(8px) rgba(#fff, .9);
-}
 
-.site__users__number--empty {
-    font-size: remCalc(33px);
-    color: $danger-color;
-    padding: $space-half 0;
+    .sites__item--empty & {
+        color: $danger-color;
+    }
 }
 
 .site__chart {
@@ -91,6 +98,10 @@
     stroke: rgba($action-color, .3);
     margin: $space-half;
     width: 90%;
+
+    .sites__item--empty & {
+        stroke: rgba($danger-color, .3);
+    }
 }
 
 %sites__top-icon {

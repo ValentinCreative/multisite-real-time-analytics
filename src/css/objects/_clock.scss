@@ -1,0 +1,34 @@
+.clock {
+    position: absolute;
+    top: $space;
+    right: $space;
+    display: flex;
+    background-color: rgba(#fff, .3);
+    backdrop-filter: blur(6px);
+    padding: remCalc(6px) remCalc(12px) remCalc(6px) / 1.5 remCalc(12px);
+    border-radius: remCalc(2px);
+    color: $gray-darker;
+}
+
+%clock__hours {
+    font-size: remCalc(25px);
+}
+
+.clock__hours {
+    @extend %clock__hours;
+
+    &:after {
+        content: ':';
+    }
+}
+
+.clock__minutes {
+    @extend %clock__hours;
+}
+
+.clock__seconds {
+    width: remCalc(17px);
+    margin-top: remCalc(3px);
+    text-align: right;
+    font-size: remCalc(14px);
+}

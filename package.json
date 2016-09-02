@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "away": "^1.0.0",
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-async-to-generator": "^6.5.0",
@@ -22,7 +23,6 @@
     "bower": "^1.7.7",
     "browser-sync": "^2.12.9",
     "bulma": "^0.1.2",
-    "chartist": "^0.9.8",
     "css-loader": "^0.24.0",
     "dateformat": "^1.0.12",
     "es6-promise": "^3.2.1",
@@ -47,6 +47,7 @@
     "gulp-watch": "^4.3.8",
     "gulp-webpack": "^1.5.0",
     "html-loader": "^0.4.3",
+    "left-pad": "^1.1.1",
     "lodash": "^4.15.0",
     "velocity-animate": "^1.2.3",
     "vinyl-buffer": "^1.0.0",

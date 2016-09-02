@@ -6,7 +6,7 @@
     <title>Analytics</title>
     <link rel="stylesheet" href="/assets/css/app.css">
 </head>
-<body>
+<body v-el:body>
     <gapi-auth :auth.sync="auth"></gapi-auth>
     <div class="sites">
         <site v-for="site in sites"
@@ -22,6 +22,7 @@
             @click.prevent="addSite">
             <span class="icon-add button__icon"></span>
     </button>
+    <clock></clock>
     <script>
     (function(w,d,s,g,js,fs){
       g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
