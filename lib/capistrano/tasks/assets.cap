@@ -1,0 +1,34 @@
+namespace :assets do
+
+    skip = ENV['skip']
+
+	desc "Generate assets locally"
+    task :gulp do
+        run_locally do
+            within fetch(:theme_path) do
+                if not skip == 'gulp'
+                    execute :gulp, 'images'
+                    execute :gulp, 'svg2png'
+                    execute :gulp, 'icons'
+                    execute :gulp, 'admin-icons'
+                    execute :gulp, 'scripts-main'
+                    execute :gulp, 'scripts-min'
+                    execute :gulp, 'styles'
+                    execute :gulp, 'prefix'
+                    execute :gulp, 'cssmin'
+                end
+            end
+        end
+    end
+
+    desc "Copy assets from local to remote"
+    task :copy do
+        run_locally do
+            roles(:web).each do |host|
+                execute :rsync, '-avz', '--progress --delete-after', '#{Dir.pwd}/assets/', "#{host.user}@#{host.hostname}:#{shared_path}/assets/"
+            end
+        end
+
+    end
+
+end

@@ -1,0 +1,13 @@
+bower_components export-ignore
+config export-ignore
+lib export-ignore
+node_modules export-ignore
+src export-ignore
+.editorconfig export-ignore
+.gitattributes export-ignore
+bower.json export-ignore
+Capfile export-ignore
+gulpfile.js export-ignore
+package.json export-ignore
+readme.md export-ignore
+screenshot.jpg export-ignore

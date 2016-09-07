@@ -9,14 +9,14 @@
 <body v-el:body>
     <gapi-auth :auth.sync="auth"></gapi-auth>
     <div class="sites">
-        <!-- <site v-for="site in sites"
+        <site v-for="site in sites"
               :id.sync="$index"
               :auth.sync="auth"
               :title.sync="site.title"
               :image.sync="site.image"
               :view.sync="site.view"
               :profile.sync="profile">
-        </site> -->
+        </site>
     </div>
     <button class="button button--primary button--floating button--raising sites__add"
             @click.prevent="addSite">
