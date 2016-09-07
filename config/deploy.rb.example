@@ -26,7 +26,6 @@ set :keep_releases, 5
 # Linked files and directories (symlinks)
 ############################################
 
-set :linked_files, %w{src/js/configuration.js}
 set :linked_dirs, %w{assets}
 
 namespace :deploy do
