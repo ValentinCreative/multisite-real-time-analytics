@@ -40,7 +40,7 @@ new Vue({
         setInterval(() => {
 
             this.setWallpaper()
-        }, 1800000)
+        }, 300000)
     },
 
     methods: {
