@@ -6,7 +6,7 @@ lock '3.4.0'
 ############################################
 
 set :application, "realtime"
-set :repo_url, "git@github.com:ValentinCreative/multisite-real-time-analytics.git"
+set :repo_url, "git@github.com:UserName/RepoName.git"
 set :scm, :git
 
 ############################################
