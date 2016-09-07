@@ -5,12 +5,11 @@ namespace :assets do
 	desc "Generate assets locally"
     task :gulp do
         run_locally do
-            within fetch(:theme_path) do
+            within Dir.pwd do
                 if not skip == 'gulp'
                     execute :gulp, 'images'
                     execute :gulp, 'svg2png'
                     execute :gulp, 'icons'
-                    execute :gulp, 'admin-icons'
                     execute :gulp, 'scripts-main'
                     execute :gulp, 'scripts-min'
                     execute :gulp, 'styles'
@@ -25,7 +24,7 @@ namespace :assets do
     task :copy do
         run_locally do
             roles(:web).each do |host|
-                execute :rsync, '-avz', '--progress --delete-after', '#{Dir.pwd}/assets/', "#{host.user}@#{host.hostname}:#{shared_path}/assets/"
+                execute :rsync, '-avz', '--progress --delete-after', "#{Dir.pwd}/assets/", "#{host.user}@#{host.hostname}:#{shared_path}/assets/"
             end
         end
 
